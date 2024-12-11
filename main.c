@@ -3,12 +3,6 @@
 
 #pragma pack(1)
 
-struct file_content
-{
-	i8*   data;
-	u32   size;
-};
-
 struct file_content   read_entire_file(char* filename)
 {
 	char* file_data = 0;
@@ -40,6 +34,6 @@ int main(int argc, char** argv)
 	}
 	struct bmp_header* header = (struct bmp_header*) file_content.data;
 	printf("signature: %.2s\nfile_size: %u\ndata_offset: %u\ninfo_header_size: %u\nwidth: %u\nheight: %u\nplanes: %i\nbit_per_px: %i\ncompression_type: %u\ncompression_size: %u\n", header->signature, header->file_size, header->data_offset, header->info_header_size, header->width, header->height, header->number_of_planes, header->bit_per_pixel, header->compression_type, header->compressed_image_size);
-	run_decoder(header ,argv[1]);
+	run_decoder(argv[1]);
     return 0;
 }

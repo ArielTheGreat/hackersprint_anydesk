@@ -42,6 +42,21 @@ struct bmp_header
 	// Note: there are more stuff there but it is not important here
 };
 
+struct file_content
+{
+	i8*   data;
+	u32   size;
+};
+
+struct color
+{
+    char b;
+    char g;
+    char r;
+    char unused;
+};
+
+void run_decoder(char *filename);
 
 #define PRINT_ERROR(cstring) write(STDERR_FILENO, cstring, sizeof(cstring) - 1)
 
